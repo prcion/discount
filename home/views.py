@@ -1,3 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.http import HttpResponse
+from .models import Discount
+def home(request):
+    discount = Discount.objects.all()
+    return render(request, "home/home.html", {"discount":discount,
+    "title":"Discount",
+    })
